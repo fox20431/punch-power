@@ -1,0 +1,47 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.2'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.hihusky.blog'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+	maven {
+		url 'https://maven.aliyun.com/repository/public/'
+	}
+	mavenLocal()
+	mavenCentral()
+}
+
+dependencies {
+	// lombok
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+	testCompileOnly 'org.projectlombok:lombok:1.18.24'
+
+	// test
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+	testImplementation 'org.junit.platform:junit-platform-runner:1.9.2'
+
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.0'
+
+	runtimeOnly 'org.postgresql:postgresql'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+    developmentOnly "org.springframework.boot:spring-boot-devtools" 
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

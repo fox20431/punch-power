@@ -1,0 +1,24 @@
+version: '3'
+services:
+  db:
+    image: fox20431/postgres:15
+    container_name: postgres-container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: one_punch
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - default
+    # 挂载
+    ports:
+      - "5432:5432"
+
+# create volumes
+volumes:
+  pgdata:
+
+# create network
+networks:
+  default:

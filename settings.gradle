@@ -1,0 +1,6 @@
+rootProject.name = 'punch-power'
+
+include('registry')
+include('gateway')
+include('auth')
+include('blog')

@@ -1,0 +1,31 @@
+server:
+  port: 7010
+  servlet:
+    context-path: /api/blog
+
+spring:
+  application:
+    name: blog
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/one_punch
+    username: ${DATASOURCE_USERNAME:postgres}
+    password: ${DATASOURCE_PASSWORD:postgres}
+  jackson:
+    time-zone: Asia/Shanghai
+  jpa:
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Asia/Shanghai
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          jpa: DEBUG
